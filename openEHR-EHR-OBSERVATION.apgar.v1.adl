@@ -155,7 +155,7 @@ Se reconhece que uma ajuda mnemônica para aprender a interpretar o escore Apgar
 		["en"] = <
 			language = <[ISO_639-1::en]>
 			purpose = <"Records the Apgar score as a simple, repeatable method to document the state of the newborn infant immediately after birth.
-The root time of the event series is always birth. Blahblahblahblah">
+The root time of the event series is always birth. Blahblahblahblah kjdsflijreli">
 			use = <"Allows recording of an assessment of the state of a neonate explicitly as 1, 2, 3, 5 and/or 10 minute events after birth, plus additional events as required. 
 Usual practice is to document the Apgar score at 1 and 5 minutes; further scores can be recorded as clinically indicated.  It is possible to record the Apgar score at any time after birth using this archetype.
 Common clinical practice is to record all 5 parameters plus the total, however this archetype allows any partial information to be recorded, if that is all that is available eg from historical data.

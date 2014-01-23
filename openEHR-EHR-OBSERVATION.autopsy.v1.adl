@@ -2,15 +2,21 @@
 	openEHR-EHR-OBSERVATION.autopsy.v1
 
 concept
-	[at0000]	-- Autopsy examination
+	[at0000]	-- Translate stuff here
 language
 	original_language = <[ISO_639-1::en]>
 	translations = <
+		["no"] = <
+			language = <[ISO_639-1::no]>
+			author = <
+				["name"] = <"?">
+			>
+		>
 		["de"] = <
 			language = <[ISO_639-1::de]>
 			author = <
-				["name"] = <"Jasmin Buck, Sebastian Garde">
 				["organisation"] = <"University of Heidelberg, Central Queensland University">
+				["name"] = <"Jasmin Buck, Sebastian Garde">
 			>
 		>
 		["ru"] = <
@@ -29,12 +35,26 @@ description
 		["date"] = <"22/03/2006">
 	>
 	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For recording findings at autopsy using structured text.">
+			use = <"">
+			misuse = <"Diagnoses should be recorded using the EVALUATION.problem-diagnosis archetype.">
+			copyright = <"© openEHR Foundation">
+		>
 		["de"] = <
 			language = <[ISO_639-1::de]>
 			purpose = <"Zur Dokumentation von Befunden der Autopsie mittels strukturiertem Text">
 			use = <"">
 			misuse = <"Zur Dokumentation von Diagnosen sollte der EVALUATION.problem-diagnosis Archetyp benutzt werden">
 			copyright = <"© openEHR Foundation">
+		>
+		["no"] = <
+			language = <[ISO_639-1::no]>
+			purpose = <"*For recording findings at autopsy using structured text.(en)">
+			use = <"*(en)">
+			misuse = <"*Diagnoses should be recorded using the EVALUATION.problem-diagnosis archetype.(en)">
+			copyright = <"*© openEHR Foundation(en)">
 		>
 		["ru"] = <
 			language = <[ISO_639-1::ru]>
@@ -43,54 +63,47 @@ description
 			misuse = <"Диагноз должен быть записан с использованием the EVALUATION.problem-diagnosis archetype.">
 			copyright = <"© openEHR Foundation">
 		>
-		["en"] = <
-			language = <[ISO_639-1::en]>
-			purpose = <"For recording findings at autopsy using structured text.">
-			use = <"">
-			misuse = <"Diagnoses should be recorded using the EVALUATION.problem-diagnosis archetype.">
-			copyright = <"© openEHR Foundation">
-		>
 	>
 	lifecycle_state = <"Initial">
 	other_contributors = <>
 	other_details = <
-		["MD5-CAM-1.0.1"] = <"14F3AC36DA31136DF70679A61C93C15D">
+		["MD5-CAM-1.0.1"] = <"DB1A0B354FC3805F842B9FDBECCD6C7E">
 	>
 
 definition
-	OBSERVATION[at0000] matches {	-- Autopsy examination
+	OBSERVATION[at0000] matches {	-- Translate stuff here
 		data matches {
-			HISTORY[at0001] matches {	-- history
+			HISTORY[at0001] matches {	-- *history(en)
 				events cardinality matches {1..*; unordered} matches {
-					EVENT[at0002] occurrences matches {0..*} matches {	-- Any event
+					EVENT[at0002] occurrences matches {0..*} matches {	-- *Any event(en)
 						data matches {
-							ITEM_TREE[at0003] matches {	-- Tree
+							ITEM_TREE[at0003] matches {	-- *Tree(en)
 								items cardinality matches {0..1; ordered} matches {
-									ELEMENT[at0004] occurrences matches {0..1} matches {	-- Clinical
+									ELEMENT[at0004] occurrences matches {0..1} matches {	-- *Clinical(en)
 										value matches {
 											DV_TEXT matches {*}
 										}
 									}
-									ELEMENT[at0005] occurrences matches {0..1} matches {	-- External examination
+									ELEMENT[at0005] occurrences matches {0..1} matches {	-- *External examination(en)
 										value matches {
 											DV_TEXT matches {*}
 										}
 									}
-									CLUSTER[at0006] occurrences matches {0..1} matches {	-- Internal examination
+									CLUSTER[at0006] occurrences matches {0..1} matches {	-- *Internal examination(en)
 										items cardinality matches {1..*; ordered} matches {
-											ELEMENT[at0007] occurrences matches {0..*} matches {	-- System
+											ELEMENT[at0007] occurrences matches {0..*} matches {	-- *System(en)
 												name matches {
 													DV_CODED_TEXT matches {
 														defining_code matches {
 															[local::
-															at0008, 	-- Cardiovascular system
-															at0009, 	-- Respiratory system
-															at0010, 	-- Gastro-intestinal system
-															at0011, 	-- Reticulo-Endothelial system
-															at0012, 	-- Genito-urinary system
-															at0013, 	-- Endocrine System
-															at0014, 	-- Central nervous system
-															at0015]	-- Musculoskeletal system
+															at0008, 	-- *Cardiovascular system(en)
+															at0009, 	-- *Respiratory system(en)
+															at0010, 	-- *Gastro-intestinal system(en)
+															at0011, 	-- *Reticulo-Endothelial system(en)
+															at0012, 	-- *Genito-urinary system(en)
+															at0013, 	-- *Endocrine System(en)
+															at0014, 	-- *Central nervous system(en)
+															at0015]	-- *Musculoskeletal system(en)
 														}
 													}
 												}
@@ -100,25 +113,25 @@ definition
 											}
 										}
 									}
-									CLUSTER[at0016] occurrences matches {0..1} matches {	-- Microscopic examination
+									CLUSTER[at0016] occurrences matches {0..1} matches {	-- *Microscopic examination(en)
 										items cardinality matches {1..*; ordered} matches {
-											ELEMENT[at0017] occurrences matches {0..*} matches {	-- Organ
+											ELEMENT[at0017] occurrences matches {0..*} matches {	-- *Organ(en)
 												name matches {
 													DV_CODED_TEXT matches {
 														defining_code matches {
 															[local::
-															at0018, 	-- Adrenals
-															at0019, 	-- Brain
-															at0020, 	-- Heart
-															at0021, 	-- Kidneys
-															at0022, 	-- Liver
-															at0023, 	-- Lungs
-															at0024, 	-- Pancreas
-															at0025, 	-- Pituitary
-															at0026, 	-- Small bowel
-															at0027, 	-- Spleen
-															at0028, 	-- Thyroid
-															at0029]	-- Vertebra
+															at0018, 	-- *Adrenals(en)
+															at0019, 	-- *Brain(en)
+															at0020, 	-- *Heart(en)
+															at0021, 	-- *Kidneys(en)
+															at0022, 	-- *Liver(en)
+															at0023, 	-- *Lungs(en)
+															at0024, 	-- *Pancreas(en)
+															at0025, 	-- *Pituitary(en)
+															at0026, 	-- *Small bowel(en)
+															at0027, 	-- *Spleen(en)
+															at0028, 	-- *Thyroid(en)
+															at0029]	-- *Vertebra(en)
 														}
 													}
 												}
@@ -137,9 +150,132 @@ definition
 		}
 	}
 
-
 ontology
 	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Autopsy examination">
+					description = <"Findings at autopsy.">
+				>
+				["at0001"] = <
+					text = <"history">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Clinical">
+					description = <"Statement about the clinical findings prior to death.">
+				>
+				["at0005"] = <
+					text = <"External examination">
+					description = <"Findings on external examination.">
+				>
+				["at0006"] = <
+					text = <"Internal examination">
+					description = <"Collection of statements about particular systems.">
+				>
+				["at0007"] = <
+					text = <"System">
+					description = <"Findings relating to different body systems.">
+				>
+				["at0008"] = <
+					text = <"Cardiovascular system">
+					description = <"Findings of the pericardium, heart and large vessels.">
+				>
+				["at0009"] = <
+					text = <"Respiratory system">
+					description = <"Findings about larynx, trachea, bronchi, lungs and pleura.">
+				>
+				["at0010"] = <
+					text = <"Gastro-intestinal system">
+					description = <"Findings about oesophagus, peritoneum, bowel, liver (including gallbladder) and omentum.">
+				>
+				["at0011"] = <
+					text = <"Reticulo-Endothelial system">
+					description = <"Findings about the spleen, lymphnodes and bone marrow.">
+				>
+				["at0012"] = <
+					text = <"Genito-urinary system">
+					description = <"Findings about the kidneys, ureters, bladders, prostate, testicles or uterus, ovaries.">
+				>
+				["at0013"] = <
+					text = <"Endocrine System">
+					description = <"Thyroid, adrenals.">
+				>
+				["at0014"] = <
+					text = <"Central nervous system">
+					description = <"Brain, scalp, dura, spinal cord.">
+				>
+				["at0015"] = <
+					text = <"Musculoskeletal system">
+					description = <"Limbs, vertebral column.">
+				>
+				["at0016"] = <
+					text = <"Microscopic examination">
+					description = <"Findings on microscopy organised by organ.">
+				>
+				["at0017"] = <
+					text = <"Organ">
+					description = <"Findings relating to biopsies of individual organs.">
+				>
+				["at0018"] = <
+					text = <"Adrenals">
+					description = <"Findings related to the adrenal glands.">
+				>
+				["at0019"] = <
+					text = <"Brain">
+					description = <"Findings related to the brain.">
+				>
+				["at0020"] = <
+					text = <"Heart">
+					description = <"Findings relating to the heart.">
+				>
+				["at0021"] = <
+					text = <"Kidneys">
+					description = <"Findings related to the kidneys.">
+				>
+				["at0022"] = <
+					text = <"Liver">
+					description = <"Findings related to the liver.">
+				>
+				["at0023"] = <
+					text = <"Lungs">
+					description = <"Findings related to the lungs.">
+				>
+				["at0024"] = <
+					text = <"Pancreas">
+					description = <"Findings related to the pancreas.">
+				>
+				["at0025"] = <
+					text = <"Pituitary">
+					description = <"Findings related to the pituitary.">
+				>
+				["at0026"] = <
+					text = <"Small bowel">
+					description = <"Findings related to the small bowel.">
+				>
+				["at0027"] = <
+					text = <"Spleen">
+					description = <"Findings related to the spleen.">
+				>
+				["at0028"] = <
+					text = <"Thyroid">
+					description = <"Findings related to the thyroid.">
+				>
+				["at0029"] = <
+					text = <"Vertebra">
+					description = <"Findings related to the spinal column.">
+				>
+			>
+		>
 		["de"] = <
 			items = <
 				["at0000"] = <
@@ -264,6 +400,130 @@ ontology
 				>
 			>
 		>
+		["no"] = <
+			items = <
+				["at0000"] = <
+					text = <"Translate stuff here">
+					description = <"dsfdsfsd">
+				>
+				["at0001"] = <
+					text = <"*history(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0002"] = <
+					text = <"*Any event(en)">
+					description = <"**(en)">
+				>
+				["at0003"] = <
+					text = <"*Tree(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0004"] = <
+					text = <"*Clinical(en)">
+					description = <"*Statement about the clinical findings prior to death.(en)">
+				>
+				["at0005"] = <
+					text = <"*External examination(en)">
+					description = <"*Findings on external examination.(en)">
+				>
+				["at0006"] = <
+					text = <"*Internal examination(en)">
+					description = <"*Collection of statements about particular systems.(en)">
+				>
+				["at0007"] = <
+					text = <"*System(en)">
+					description = <"*Findings relating to different body systems.(en)">
+				>
+				["at0008"] = <
+					text = <"*Cardiovascular system(en)">
+					description = <"*Findings of the pericardium, heart and large vessels.(en)">
+				>
+				["at0009"] = <
+					text = <"*Respiratory system(en)">
+					description = <"*Findings about larynx, trachea, bronchi, lungs and pleura.(en)">
+				>
+				["at0010"] = <
+					text = <"*Gastro-intestinal system(en)">
+					description = <"*Findings about oesophagus, peritoneum, bowel, liver (including gallbladder) and omentum.(en)">
+				>
+				["at0011"] = <
+					text = <"*Reticulo-Endothelial system(en)">
+					description = <"*Findings about the spleen, lymphnodes and bone marrow.(en)">
+				>
+				["at0012"] = <
+					text = <"*Genito-urinary system(en)">
+					description = <"*Findings about the kidneys, ureters, bladders, prostate, testicles or uterus, ovaries.(en)">
+				>
+				["at0013"] = <
+					text = <"*Endocrine System(en)">
+					description = <"*Thyroid, adrenals.(en)">
+				>
+				["at0014"] = <
+					text = <"*Central nervous system(en)">
+					description = <"*Brain, scalp, dura, spinal cord.(en)">
+				>
+				["at0015"] = <
+					text = <"*Musculoskeletal system(en)">
+					description = <"*Limbs, vertebral column.(en)">
+				>
+				["at0016"] = <
+					text = <"*Microscopic examination(en)">
+					description = <"*Findings on microscopy organised by organ.(en)">
+				>
+				["at0017"] = <
+					text = <"*Organ(en)">
+					description = <"*Findings relating to biopsies of individual organs.(en)">
+				>
+				["at0018"] = <
+					text = <"*Adrenals(en)">
+					description = <"*Findings related to the adrenal glands.(en)">
+				>
+				["at0019"] = <
+					text = <"*Brain(en)">
+					description = <"*Findings related to the brain.(en)">
+				>
+				["at0020"] = <
+					text = <"*Heart(en)">
+					description = <"*Findings relating to the heart.(en)">
+				>
+				["at0021"] = <
+					text = <"*Kidneys(en)">
+					description = <"*Findings related to the kidneys.(en)">
+				>
+				["at0022"] = <
+					text = <"*Liver(en)">
+					description = <"*Findings related to the liver.(en)">
+				>
+				["at0023"] = <
+					text = <"*Lungs(en)">
+					description = <"*Findings related to the lungs.(en)">
+				>
+				["at0024"] = <
+					text = <"*Pancreas(en)">
+					description = <"*Findings related to the pancreas.(en)">
+				>
+				["at0025"] = <
+					text = <"*Pituitary(en)">
+					description = <"*Findings related to the pituitary.(en)">
+				>
+				["at0026"] = <
+					text = <"*Small bowel(en)">
+					description = <"*Findings related to the small bowel.(en)">
+				>
+				["at0027"] = <
+					text = <"*Spleen(en)">
+					description = <"*Findings related to the spleen.(en)">
+				>
+				["at0028"] = <
+					text = <"*Thyroid(en)">
+					description = <"*Findings related to the thyroid.(en)">
+				>
+				["at0029"] = <
+					text = <"*Vertebra(en)">
+					description = <"*Findings related to the spinal column.(en)">
+				>
+			>
+		>
 		["ru"] = <
 			items = <
 				["at0000"] = <
@@ -385,130 +645,6 @@ ontology
 				["at0029"] = <
 					text = <"Позвоночник">
 					description = <"Заключение относительно позвоночника(ru)">
-				>
-			>
-		>
-		["en"] = <
-			items = <
-				["at0000"] = <
-					text = <"Autopsy examination">
-					description = <"Findings at autopsy.">
-				>
-				["at0001"] = <
-					text = <"history">
-					description = <"@ internal @">
-				>
-				["at0002"] = <
-					text = <"Any event">
-					description = <"*">
-				>
-				["at0003"] = <
-					text = <"Tree">
-					description = <"@ internal @">
-				>
-				["at0004"] = <
-					text = <"Clinical">
-					description = <"Statement about the clinical findings prior to death.">
-				>
-				["at0005"] = <
-					text = <"External examination">
-					description = <"Findings on external examination.">
-				>
-				["at0006"] = <
-					text = <"Internal examination">
-					description = <"Collection of statements about particular systems.">
-				>
-				["at0007"] = <
-					text = <"System">
-					description = <"Findings relating to different body systems.">
-				>
-				["at0008"] = <
-					text = <"Cardiovascular system">
-					description = <"Findings of the pericardium, heart and large vessels.">
-				>
-				["at0009"] = <
-					text = <"Respiratory system">
-					description = <"Findings about larynx, trachea, bronchi, lungs and pleura.">
-				>
-				["at0010"] = <
-					text = <"Gastro-intestinal system">
-					description = <"Findings about oesophagus, peritoneum, bowel, liver (including gallbladder) and omentum.">
-				>
-				["at0011"] = <
-					text = <"Reticulo-Endothelial system">
-					description = <"Findings about the spleen, lymphnodes and bone marrow.">
-				>
-				["at0012"] = <
-					text = <"Genito-urinary system">
-					description = <"Findings about the kidneys, ureters, bladders, prostate, testicles or uterus, ovaries.">
-				>
-				["at0013"] = <
-					text = <"Endocrine System">
-					description = <"Thyroid, adrenals.">
-				>
-				["at0014"] = <
-					text = <"Central nervous system">
-					description = <"Brain, scalp, dura, spinal cord.">
-				>
-				["at0015"] = <
-					text = <"Musculoskeletal system">
-					description = <"Limbs, vertebral column.">
-				>
-				["at0016"] = <
-					text = <"Microscopic examination">
-					description = <"Findings on microscopy organised by organ.">
-				>
-				["at0017"] = <
-					text = <"Organ">
-					description = <"Findings relating to biopsies of individual organs.">
-				>
-				["at0018"] = <
-					text = <"Adrenals">
-					description = <"Findings related to the adrenal glands.">
-				>
-				["at0019"] = <
-					text = <"Brain">
-					description = <"Findings related to the brain.">
-				>
-				["at0020"] = <
-					text = <"Heart">
-					description = <"Findings relating to the heart.">
-				>
-				["at0021"] = <
-					text = <"Kidneys">
-					description = <"Findings related to the kidneys.">
-				>
-				["at0022"] = <
-					text = <"Liver">
-					description = <"Findings related to the liver.">
-				>
-				["at0023"] = <
-					text = <"Lungs">
-					description = <"Findings related to the lungs.">
-				>
-				["at0024"] = <
-					text = <"Pancreas">
-					description = <"Findings related to the pancreas.">
-				>
-				["at0025"] = <
-					text = <"Pituitary">
-					description = <"Findings related to the pituitary.">
-				>
-				["at0026"] = <
-					text = <"Small bowel">
-					description = <"Findings related to the small bowel.">
-				>
-				["at0027"] = <
-					text = <"Spleen">
-					description = <"Findings related to the spleen.">
-				>
-				["at0028"] = <
-					text = <"Thyroid">
-					description = <"Findings related to the thyroid.">
-				>
-				["at0029"] = <
-					text = <"Vertebra">
-					description = <"Findings related to the spinal column.">
 				>
 			>
 		>
